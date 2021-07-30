@@ -20,6 +20,7 @@ public class Racing {
 		frame.setSize(WIDTH, HEIGHT);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
-		frame.addKeyListener(panel);	
+		frame.addKeyListener(panel);
+		frame.addMouseListener(panel);
 	}
 }

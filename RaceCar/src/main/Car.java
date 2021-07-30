@@ -15,6 +15,9 @@ public class Car extends GameObject{
 	public boolean turnLeft = false;
 	public boolean turnRight = false;
 	public double maxStrAng = 10;
+	double centerX = 0;
+	double centerY = 0;
+	
 	public Car(int x, int y, int width, int height) {
 		// TODO Auto-generated constructor stub
 		super(x, y, width, height);
@@ -50,17 +53,14 @@ public class Car extends GameObject{
 		frwrdSpd *= 0.99;
 		y+=frwrdSpd*Math.sin(Math.toRadians(angle));
 		x+=frwrdSpd*Math.cos(Math.toRadians(angle));
-		if(GamePanel.color == -15806139) {
-			System.out.println(GamePanel.color + "   " + x + "," + y);
-			GamePanel.carReset();
-			x = 800;
-			y = 250;
-			angle = 0;
-			strAng = 0;
-		frwrdSpd = 0;
+		
+		if(GamePanel.color != -10987432) {
+			ObjectManager.resetCar();
 		}
 		handleTurning();
 		handleAccel();
+		centerX = x + width/2;
+		centerY = y + height/2;
 	}
 	public void accelerate(double accelerate) {
 		if(frwrdSpd < 10 && frwrdSpd > -10) {
